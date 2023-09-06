@@ -1,0 +1,25 @@
+package com.vodacom.er.gui.actions;
+
+public enum GroupActions {
+    GROUPBYID("GROUPBYID"),
+    ALLSIMPLEGROUPS("ALLSIMPLEGROUPS"),
+    GROUPWITHLISTFUNCTIONS("GROUPWITHLISTFUNCTIONS"),
+    ALLGROUPWITHPAGINATION("ALLGROUPWITHPAGINATION"),
+    ADDESGROUP("ADDESGROUP"),
+    CREATESGROUP("CREATESGROUP"),
+    CREATESGROUPWITHAFUNCTION("CREATESGROUPWITHAFUNCTION"),
+    CREATESGROUPWITHFUNCTIONLIST("CREATESGROUPWITHFUNCTIONLIST"),
+    UPDATEGROUPBYID("UPDATEGROUPBYID"),
+    DELETEAGROUPBYID("DELETEAGROUPBYID");
+
+    private final String action;
+
+    GroupActions(String action) {
+        this.action = action;
+    }
+
+    public String getAction() {
+        return action;
+    }
+}
+
