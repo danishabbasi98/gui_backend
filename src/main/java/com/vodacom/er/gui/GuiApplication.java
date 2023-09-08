@@ -60,6 +60,19 @@ public class GuiApplication {
   @PostConstruct
   public void initUsers() {
 
+      String adminUserName1 = "buttm001";
+      String adminUserName2 = "user1";
+      String adminUserName3 = "user2";
+
+      if (esUserRepository.findByUserName(adminUserName1.toString()) == null && esUserRepository.findByUserName(adminUserName2.toString()) == null && esUserRepository.findByUserName(adminUserName3.toString()) == null) {
+        List<Users> es_users = Stream.of(
+            new Users(101, passwordEncoder.encode("password"),  adminUserName1, currentDate, currentDate, 1, "N", "name", "lastuser", "0000", "admin", "user1@gmail.com", "Y", currentDate, "admin"),
+            new Users(102, passwordEncoder.encode("password"),  adminUserName2, currentDate, currentDate, 1, "Y", "name", "lastuser", "0000", "normal", "user2@gmail.com", "Y", currentDate, "admin"),
+            new Users(103, passwordEncoder.encode("password"),  adminUserName3, currentDate, currentDate, 1, "N", "name", "lastuser", "0000", "normal", "user3@gmail.com", "Y", currentDate, "admin")
+        ).collect(Collectors.toList());
+        esUserRepository.saveAll(es_users);
+      }
+
     //		List<Es_User_Groups> es_user_groups = Stream.of(
     //				new Es_User_Groups(111,1,4,currentDate,"admin")
     //		).collect(Collectors.toList());
@@ -71,8 +84,8 @@ public class GuiApplication {
     //		esGroupFunctionsRepository.saveAll(es_group_functions);
 
     // passwordEncoder use for without ldap testing
-    List<Users> es_users = Stream.of(new Users(101, passwordEncoder.encode("password"), "buttm001", currentDate, currentDate, 1, "N", "name", "lastuser", "31054542580", "admin", "danish@gmail.com", "Y", currentDate, "modified_by"), new Users(102, passwordEncoder.encode("password"), "user2", currentDate, currentDate, 1, "Y", "name", "lastuser", "31054542580", "normal", "danish@gmail.com", "Y", currentDate, "modified_by"), new Users(103, passwordEncoder.encode("password"), "user3", currentDate, currentDate, 1, "N", "name", "lastuser", "31054542580", "normal", "danish@gmail.com", "Y", currentDate, "modified_by"), new Users(103, passwordEncoder.encode("password"), "buttm002", currentDate, currentDate, 1, "N", "name", "lastuser", "31054542580", "normal", "danish@gmail.com", "Y", currentDate, "modified_by")).collect(Collectors.toList());
-    esUserRepository.saveAll(es_users);
+//    List<Users> es_users = Stream.of(new Users(101, passwordEncoder.encode("password"), "buttm001", currentDate, currentDate, 1, "N", "name", "lastuser", "31054542580", "admin", "danish@gmail.com", "Y", currentDate, "modified_by"), new Users(102, passwordEncoder.encode("password"), "user2", currentDate, currentDate, 1, "Y", "name", "lastuser", "31054542580", "normal", "danish@gmail.com", "Y", currentDate, "modified_by"), new Users(103, passwordEncoder.encode("password"), "user3", currentDate, currentDate, 1, "N", "name", "lastuser", "31054542580", "normal", "danish@gmail.com", "Y", currentDate, "modified_by"), new Users(103, passwordEncoder.encode("password"), "buttm002", currentDate, currentDate, 1, "N", "name", "lastuser", "31054542580", "normal", "danish@gmail.com", "Y", currentDate, "modified_by")).collect(Collectors.toList());
+//    esUserRepository.saveAll(es_users);
 
     ////     for actual groups
     List<Groups> es_groups = Stream.of(new Groups("System Operations", "System Operations Team", "Y", currentDate, "admin"), new Groups("Business Analyst", "Business Analyst Team", "Y", currentDate, "admin"), new Groups("Customer Care", "Customer Care Team", "Y", currentDate, "admin")).collect(Collectors.toList());
