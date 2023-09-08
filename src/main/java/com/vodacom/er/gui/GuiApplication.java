@@ -47,7 +47,6 @@ public class GuiApplication {
   @Autowired
   private EsUserGroupRepository esUserGroupRepository;
 
-
   @Autowired
   private EsGroupFunctionsRepository esGroupFunctionsRepository;
 
