@@ -19,6 +19,7 @@ target/
 *.iml
 *.ipr
 
+
 ### NetBeans ###
 /nbproject/private/
 /nbbuild/
@@ -31,3 +32,11 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# Ignore the application.properties file in src/main/resources
+/src/main/resources/application.properties
+
+
+# Ignore log files
+*.log
+*.log.*
