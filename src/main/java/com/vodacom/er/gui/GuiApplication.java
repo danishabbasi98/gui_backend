@@ -56,8 +56,6 @@ public class GuiApplication {
   Date currentDate = new Date();
 
   // for hard coded data
-  
-  
 
   @PostConstruct
   public void initUsers() {
